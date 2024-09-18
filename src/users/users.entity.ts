@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import {
   Entity,
   Column,
@@ -16,6 +17,10 @@ export class User {
   email: string;
 
   @Column()
+  @Exclude({
+    toClassOnly: false,
+    toPlainOnly: true,
+  })
   password: string;
 
   @AfterInsert()
