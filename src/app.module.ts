@@ -20,7 +20,6 @@ const cookieSession = require('cookie-session');
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
-        console.log(config.get<string>('DB_NAME'));
         return {
           type: 'sqlite',
           database: config.get<string>('DB_NAME'),
